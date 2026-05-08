@@ -1,0 +1,192 @@
+
+<style>
+.member-card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 500; flex-shrink: 0;
+}
+.badge {
+  display: inline-block;
+  font-size: 11px; font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 4px;
+}
+.task-row {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.task-item {
+  display: flex; gap: 8px; align-items: flex-start;
+  font-size: 13px; color: var(--color-text-primary); line-height: 1.5;
+}
+.dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  margin-top: 5px; flex-shrink: 0;
+}
+.divider { height: 0.5px; background: var(--color-border-tertiary); }
+.phase-label {
+  font-size: 11px; font-weight: 500; color: var(--color-text-tertiary);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+.tip-box {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 10px 14px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+.sync-card {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+}
+.sync-row {
+  display: flex; gap: 10px; align-items: center;
+  font-size: 13px; padding: 6px 0;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+  color: var(--color-text-primary);
+}
+.sync-row:last-child { border-bottom: none; }
+.sync-time { font-weight: 500; min-width: 80px; color: var(--color-text-secondary); font-size: 12px; }
+</style>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; padding: 4px 0 0;">
+
+  <!-- MEMBRE 1 -->
+  <div class="member-card">
+    <div style="display:flex; gap:12px; align-items:center;">
+      <div class="avatar" style="background:var(--color-background-info); color:var(--color-text-info);">M1</div>
+      <div>
+        <div class="badge" style="background:var(--color-background-info); color:var(--color-text-info);">Data & IA</div>
+        <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">Membre 1</div>
+        <div style="font-size:12px; color:var(--color-text-secondary);">ML Engineer</div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="phase-label">Phase 1 — données</div>
+    <div class="task-row">
+      <div class="task-item"><div class="dot" style="background:#378ADD;"></div>Télécharger dataset Kaggle insurance_claims.csv</div>
+      <div class="task-item"><div class="dot" style="background:#378ADD;"></div>Nettoyage avec pandas (valeurs nulles, types)</div>
+      <div class="task-item"><div class="dot" style="background:#378ADD;"></div>Feature engineering : ratio sinistres/mois, montant moyen</div>
+    </div>
+    <div class="divider"></div>
+    <div class="phase-label">Phase 2 — modèle</div>
+    <div class="task-row">
+      <div class="task-item"><div class="dot" style="background:#378ADD;"></div>Entraîner RandomForestClassifier (scikit-learn)</div>
+      <div class="task-item"><div class="dot" style="background:#378ADD;"></div>SMOTE pour rééquilibrer les classes fraude/normal</div>
+      <div class="task-item"><div class="dot" style="background:#378ADD;"></div>Sauvegarder modèle avec joblib (.pkl)</div>
+    </div>
+    <div class="divider"></div>
+    <div class="phase-label">Phase 3 — API IA</div>
+    <div class="task-row">
+      <div class="task-item"><div class="dot" style="background:#378ADD;"></div>Créer API FastAPI avec endpoint POST /predict</div>
+      <div class="task-item"><div class="dot" style="background:#378ADD;"></div>Retourner score 0→100 + top 3 raisons (explicabilité)</div>
+      <div class="task-item"><div class="dot" style="background:#378ADD;"></div>Tester avec Postman avant intégration</div>
+    </div>
+    <div class="tip-box">Livrable clé : API IA qui tourne sur localhost:8000/predict</div>
+  </div>
+
+  <!-- MEMBRE 2 -->
+  <div class="member-card">
+    <div style="display:flex; gap:12px; align-items:center;">
+      <div class="avatar" style="background:var(--color-background-success); color:var(--color-text-success);">M2</div>
+      <div>
+        <div class="badge" style="background:var(--color-background-success); color:var(--color-text-success);">Backend & DB</div>
+        <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">Membre 2</div>
+        <div style="font-size:12px; color:var(--color-text-secondary);">Backend Dev</div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="phase-label">Phase 1 — base de données</div>
+    <div class="task-row">
+      <div class="task-item"><div class="dot" style="background:#639922;"></div>Installer MongoDB + créer collections users, claims, fraud_scores</div>
+      <div class="task-item"><div class="dot" style="background:#639922;"></div>Définir les schémas Mongoose</div>
+      <div class="task-item"><div class="dot" style="background:#639922;"></div>Seed avec données fictives pour tests</div>
+    </div>
+    <div class="divider"></div>
+    <div class="phase-label">Phase 2 — API Node.js</div>
+    <div class="task-row">
+      <div class="task-item"><div class="dot" style="background:#639922;"></div>Créer serveur Express + routes auth (JWT)</div>
+      <div class="task-item"><div class="dot" style="background:#639922;"></div>Route POST /claims — enregistrer un sinistre</div>
+      <div class="task-item"><div class="dot" style="background:#639922;"></div>Appel axios vers API Python (Membre 1) pour le score</div>
+    </div>
+    <div class="divider"></div>
+    <div class="phase-label">Phase 3 — intégration</div>
+    <div class="task-row">
+      <div class="task-item"><div class="dot" style="background:#639922;"></div>Sauvegarder le score reçu dans fraud_scores</div>
+      <div class="task-item"><div class="dot" style="background:#639922;"></div>Route GET /dashboard — stats pour le frontend</div>
+      <div class="task-item"><div class="dot" style="background:#639922;"></div>Middleware upload de documents (multer)</div>
+    </div>
+    <div class="tip-box">Livrable clé : API REST Node.js complète sur localhost:3000</div>
+  </div>
+
+  <!-- MEMBRE 3 -->
+  <div class="member-card">
+    <div style="display:flex; gap:12px; align-items:center;">
+      <div class="avatar" style="background:var(--color-background-warning); color:var(--color-text-warning);">M3</div>
+      <div>
+        <div class="badge" style="background:var(--color-background-warning); color:var(--color-text-warning);">Frontend & Démo</div>
+        <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">Membre 3</div>
+        <div style="font-size:12px; color:var(--color-text-secondary);">Frontend Dev</div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="phase-label">Phase 1 — maquette</div>
+    <div class="task-row">
+      <div class="task-item"><div class="dot" style="background:#BA7517;"></div>Créer projet React + installer Tailwind / Chart.js</div>
+      <div class="task-item"><div class="dot" style="background:#BA7517;"></div>Page login / register avec JWT stocké</div>
+      <div class="task-item"><div class="dot" style="background:#BA7517;"></div>Formulaire de déclaration de sinistre</div>
+    </div>
+    <div class="divider"></div>
+    <div class="phase-label">Phase 2 — dashboard</div>
+    <div class="task-row">
+      <div class="task-item"><div class="dot" style="background:#BA7517;"></div>Jauge visuelle score fraude (0→100) avec couleurs</div>
+      <div class="task-item"><div class="dot" style="background:#BA7517;"></div>Tableau des sinistres suspects avec badges statut</div>
+      <div class="task-item"><div class="dot" style="background:#BA7517;"></div>Graphique évolution fraudes (Chart.js)</div>
+    </div>
+    <div class="divider"></div>
+    <div class="phase-label">Phase 3 — démo & pitch</div>
+    <div class="task-row">
+      <div class="task-item"><div class="dot" style="background:#BA7517;"></div>Connecter toutes les pages à l'API backend (M2)</div>
+      <div class="task-item"><div class="dot" style="background:#BA7517;"></div>Préparer scénario de démo : cas normal vs cas fraude</div>
+      <div class="task-item"><div class="dot" style="background:#BA7517;"></div>Rédiger le pitch de 3 min pour le jury</div>
+    </div>
+    <div class="tip-box">Livrable clé : Interface fonctionnelle + pitch béton pour le jury</div>
+  </div>
+
+</div>
+
+<!-- Synchronisation -->
+<div class="sync-card">
+  <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Points de synchronisation obligatoires</div>
+  <div class="sync-row">
+    <span class="sync-time">Démarrage</span>
+    <span>M1 partage le format JSON exact que l'API /predict attend → M2 code le bon appel axios → M3 connaît les champs du formulaire</span>
+  </div>
+  <div class="sync-row">
+    <span class="sync-time">Mi-hackathon</span>
+    <span>M2 expose une route /claims test → M3 peut afficher de vraies données, M1 valide que le score arrive bien côté frontend</span>
+  </div>
+  <div class="sync-row">
+    <span class="sync-time">1h avant fin</span>
+    <span>Test bout-en-bout sur scénario fraude : soumission → score élevé → alerte affichée. M3 prépare la démo live.</span>
+  </div>
+</div>
+
+<div style="margin-top:10px;">
+  <button onclick="sendPrompt('Donne-moi le code complet de l API FastAPI pour le Membre 1')">Code API FastAPI (M1) ↗</button>
+  <button style="margin-left:8px;" onclick="sendPrompt('Donne-moi le code du serveur Express + routes pour le Membre 2')">Code Express + MongoDB (M2) ↗</button>
+  <button style="margin-left:8px;" onclick="sendPrompt('Donne-moi le code React du dashboard pour le Membre 3')">Code dashboard React (M3) ↗</button>
+</div>

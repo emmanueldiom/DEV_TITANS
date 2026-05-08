@@ -1,0 +1,60 @@
+# Node modules
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Production
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.*
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Misc
+coverage/
+coverage-final.json
+npm-debug.log
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Mac
+.AppleDouble
+.LSOverride
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# Frontend artifacts
+public/static/
+
+# Lockfiles if not intended to be committed
+# package-lock.json
+# pnpm-lock.yaml
+# yarn.lock
